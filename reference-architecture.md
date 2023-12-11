@@ -4,7 +4,7 @@ copyright:
   years: 2023
 lastupdated: "2023-11-28"
 
-subcollection: <repo-name>
+subcollection: whitepaper-vpc-resiliency
 
 keywords:
 
@@ -68,7 +68,7 @@ Include a short description, summary, or overview in a single paragraph that des
 ## Architecture diagram
 {: #architecture-diagram}
 
-Include the architecture diagram SVG file that was created by using drawio and the IBM2 library. 
+Include the architecture diagram SVG file that was created by using drawio and the IBM2 library.
 
 ![Enter image alt text here.](example-architecture-diagram.svg "Title text that shows on hover here"){: caption="Figure 1. A description that prints on the page" caption-side="bottom"}
 
@@ -107,4 +107,3 @@ Update Table below with solution components unique to this pattern.
 |  | Activity Tracker Event Routing | Audit logs |
 | Other  use if there is  additional aspect(s)  Name Aspect | Cell content | Cell content |
 {: caption="Table 1. Components" caption-side="bottom"}
-

@@ -12,8 +12,8 @@ keywords:
 
 {{site.data.keyword.attribute-definition-list}}
 
-# Overview
-{: #overview}
+# Backup and restore architecture decisions
+{: #backup-and-restore-architecture}
 
 <!-- Note to author>    THIS SHOULD BE ABOUT 10 – 15 LINES AND FOLLOW….
 The objective of this pattern is to provide a solution design for……. -->

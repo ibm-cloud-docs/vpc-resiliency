@@ -4,7 +4,7 @@ copyright:
   years: 2023
 lastupdated: "2023-11-28"
 
-subcollection: <repo-name>
+subcollection: whitepaper-vpc-resiliency
 
 keywords:
 
@@ -19,7 +19,7 @@ The following represents a baseline set of requirements are applicable to most c
 
 <!--example Requirements Table – update with requirements for pattern-->
 
-| Aspect | Requirements | 
+| Aspect | Requirements |
 | -------------- | -------------- |
 | Compute | Provide properly isolated compute resources with adequate compute capacity for the applications. |
 | Storage | Provide storage that meets the application and database performance requirements. |
@@ -28,4 +28,3 @@ The following represents a baseline set of requirements are applicable to most c
 | Resiliency | Support application availability targets and business continuity policies.  \n Provide highly available compute, storage, network, and other cloud services to handle application load and performance requirements.  \n Backup application data to enable recovery in the event of unplanned outages.  \n Provide highly available storage for security data (logs) and backup data.|
 | Service Management | Monitor system and application health metrics and logs to detect issues that might impact the availability of the application.  \n Generate alerts/notifications about issues that might impact the availability of applications to trigger appropriate responses to minimize down time.  \n Monitor audit logs to track changes and detect potential security problems.  \n Provide a mechanism to identify and send notifications about issues found in audit logs. |
 {: caption="Table 1. Pattern requirements" caption-side="bottom"}
-

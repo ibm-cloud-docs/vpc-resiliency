@@ -4,28 +4,25 @@
 ---
 toc:
   properties:
-    subcollection: <repo-name>
+    subcollection: whitepaper-vpc-resiliency
+    authors:
+        - name: Carol Hernandez
+          url: https://www.linkedin.com/in/carolbhernandez/
     industry: industry-value
     use-case: use-case-value
     compliance: compliance-value
     audience: solution
-    content-type: deployment
-    href: /docs/<repo-name>
-    path: <repo-name>
-    description: Pattern description
-    label: Pattern name
+    content-type: white-paper
+    href: /docs/whitepaper-vpc-resiliency
+    path: whitepaper-vpc-resiliency
+    description: Design considerations and architecture decisions for deploying resilient applications on IBM Cloud Virtual Private Cloud (VPC) infrastructure.
+    label: VPC Resiliency
 
   entries:
   - navgroup:
       id: overview
       topics:
       - overview.md
-      - requirements.md
-
-  - navgroup:
-      id: architecture
-      topics:
-      - reference-architecture.md
 
   - navgroup:
       id: plan
@@ -33,41 +30,33 @@ toc:
       - topicgroup:
           label: Design considerations
           topics:
-          - topic: compute-design.md
-            navtitle: Compute
-          - topic: storage-design.md
-            navtitle: Storage
+          - topic: high-availability-design.md
+            navtitle: High availability
+          - topic: backup-and-restore-design.md
+            navtitle: Backup and restore
+          - topic: disaster-recovery-design.md
+            navtitle: Disaster recovery
           - topic: networking-design.md
             navtitle: Networking
           - topic: security-design.md
             navtitle: Security
-          - topic: resiliency-design.md
-            navtitle: Resiliency
           - topic: service-management-design.md
             navtitle: Service management
-          - other-design.md
       - topicgroup:
           label: Architecture decisions
           topics:
-          - topic: compute-architecture.md
-            navtitle: Compute
-          - topic: storage-architecture.md
-            navtitle: Storage
+          - topic: high-availability-architecture.md
+            navtitle: High availability
+          - topic: backup-and-restore-architecture.md
+            navtitle: Backup and restore
+          - topic: disaster-recovery-architecture.md
+            navtitle: Disaster recovery
           - topic: networking-architecture.md
             navtitle: Networking
           - topic: security-architecture.md
             navtitle: Security
-          - topic: resiliency-architecture.md
-            navtitle: Resiliency
           - topic: service-management-architecture.md
             navtitle: Service management
-          - other-architecture.md
-
-  - navgroup:
-      id: deploy
-      topics:
-      - topic-7.md
-      - topic-8.md
 
   - navgroup:
       id: reference

@@ -10,8 +10,8 @@ keywords:
 
 ---
 
-# Networking architecture decisions
-{: #networking-architecture}
+# High availability architecture decisions
+{: #high-availability-architecture}
 
 Let's write a short description...
 

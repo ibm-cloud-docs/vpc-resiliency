@@ -10,8 +10,8 @@ keywords:
 
 ---
 
-# Networking architecture decisions
-{: #networking-architecture}
+# Disaster recovery architecture decisions
+{: #disaster-recovery-architecture}
 
 Let's write a short description...
 
