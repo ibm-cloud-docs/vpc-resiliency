@@ -28,7 +28,7 @@ industry:
 # https://github.ibm.com/digital/taxonomy/blob/main/compliance_entities/compliance_entities_flat_list.csv
 compliance:
 
-content-type: reference-architecture
+content-type: white-paper
 
 ---
 
