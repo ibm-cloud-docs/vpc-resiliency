@@ -10,59 +10,41 @@ keywords:
 
 ---
 
-# High availability architecture decisions
-{: #high-availability-architecture}
+# Resiliency architecture decisions
+{: #resiliency-architecture}
 
-Let's write a short description...
+The following sections summarize architecture decisions for designing resilient solutions on IBM Cloud.
 
-## Enterprise connectivity architecture decisions
-{: #enterprise-connectivity}
+## High Availability Architecture Decisions
+{: #high-availability}
 
-And, then let's introduce the table. Something like: "The following are enterprise connectivity architecture decisions for this design."
-
-| Architecture Decision | Requirement | Alternative | Decision | Rationale |
+| No. | Architecture Decision | Requirement | Alternative | Decision | Rationale |
 | -------------- | -------------- | -------------- | -------------- | -------------- |
-| Connectivity for management | Provide secure, encrypted connectivity to the cloud’s private network for management purposes. | * Client VPN for VPC \n * VPN for VPC | Client VPN for VPC | Client VPN for VPC provides client-to-site connectivity, which allows remote devices to securely connect to the VPC network using an OpenVPN software client. |
-{: caption="Table 1. Enterprise connectivity architecture decisions" caption-side="bottom"}
+|  1                    | High Availability Deployment | - Ensure availability of resources in the event of outages. - Support SLA targets for application availability. | - Single zone, single region - Multi zone, single region - Multi-zone, multi region | Single zone, single region  | - Provides protection from host failures - Supports 99.9% availability Recommended approach for  low to medium priority applications or non-production workloads                                                                                                                                                                                                                                                                                              |
+|                       |                              |                                                                                                                 |                                                                                     | Multi-zone, single region   | Recommended deployment for Multi-Zone Resiliency Pattern - Provides protection from zone outage - Supports 99.99% availability for active-active application architecture with virtual servers deployed across 3 zones   Recommended approach for: - Core business applications - Production level workloads with stringent resiliency requirements  - Business continuity policies with country boundaries or geo data residence constraints             |
+|                       |                              |                                                                                                                 |                                                                                     | Multi-zone, multi-region    | Recommended deployment for Cross-Region Resiliency Pattern - Provides protection from region outage - Supports \>99.99% availability for active-active application architecture with application-aware data replication across regions  Recommended approach for: - Mission critical applications with continuous or near continuous availability requirements - Business continuity policies with cross geo or distance requirements - Disaster Recovery |
+{: caption="Table 1. High availability architecture decisions" caption-side="bottom"}
 
-## Network segmentation and isolation architecture decisions
-{: #network-segmentation-isolation}
+## Backup and Restore Architecture Decisions
+{: #backup-and-restore}
 
-Intro text...
-
-| Architecture Decision | Requirement | Alternative | Decision | Rationale |
+| No. | Architecture Decision | Requirement | Alternative | Decision | Rationale |
 | -------------- | -------------- | -------------- | -------------- | -------------- |
-| Web App Deployment | * Deploy workloads in isolated environment and enforce information flow policies. \n * Provide isolated security zones between app tiers	- Virtual Private Clouds (VPCs) | * Virtual Private Clouds (VPCs) \n * Subnets \n * Security Groups (SGs) \n * ACLs | VPCs, subnets, Security Groups (SGs) and ACLs | VPCs provide secure, virtual networks for web apps which are logically isolated from other public cloud tenants. Subnets provide a range of private IP addresses for each Web app tier within a zone. Security Groups and ACLs are used as firewalls to limit access to virtual servers and web app tiers. |
-{: caption="Table 2. Network segmentation and isolation architecture decisions" caption-side="bottom"}
+| 1                      | App server backup | - Backup App server to enable re-deployment of application in the event of unplanned outages                            | - IBM Cloud Backup - IBM Storage Protect                   | IBM Cloud Backup    | Use Cloud Backup to create volume snapshots of App servers when application-consistent backups are not required.                                            |
+| 2                      | DB server backup  | - Backup DB server images to enable recovery of databases in the event of unplanned outages                             | - IBM Cloud Backup - IBM Storage Protect                   | IBM Storage Protect | Use Storage Protect to backup DB servers in DB tier since this is also the recommended tool for transaction consistent backups for the data volumes.        |
+| 3                      | DB backup         | - Create transaction consistent database backups to enable recovery of database tier in the event of unplanned outages  | - IBM Storage Protect - DB Backup Tool - BYO Tool          | IBM Storage Protect | Use Storage Protect for application consistent backups of the database. - Storage Protect supports Oracle, IBM Db2, MongoDB, Microsoft SQL Server, SAP HANA |
+| 4                      | File Backup       | - Create file system backups for according to business processes                                                        | - IBM Storage Protect - BYO Backup Tool                    | IBM Storage Protect | Use Storage Protect if there is a business need to backup or recover specific files.                                                                        |
+| 5                      | Backup Automation | - Schedule regular database backups based on RPO requirements to enable data recovery in the event of unplanned outages | - IBM Cloud Backup - IBM Storage Protect - BYO Backup Tool | IBM Storage Protect | Use Storage Protect to schedule regular backups for the DB tier and define backup policies to manage the creation and deletion of backups.                  |
+{: caption="Table 2. Backup and restore architecture decisions" caption-side="bottom"}
 
-## Cloud native connectivity architecture decisions
-{: #cloud-native-connectivity}
+## Disaster Recovery Architecture Decisions
+{: #disaster recovery}
 
-Intro text...
-
-| Architecture Decision | Requirement | Alternative | Decision | Rationale |
+| No. | Architecture Decision | Requirement | Alternative | Decision | Rationale |
 | -------------- | -------------- | -------------- | -------------- | -------------- |
-| Connectivity to Cloud Services | Provide secure connection to Cloud Services | * VPC Gateway + Virtual Private Endpoints (VPE) \n * Private Cloud Service endpoints \n * Public Cloud Service Endpoints | VPC Gateway + Virtual Private Endpoints (VPE) | VPC Gateway + Virtual Private Endpoints enable connectivity to IBM Cloud services using private IP addresses allocated from a VPC subnet. |
-| VPC to VPC Connectivity | Connect two or more VPCs over private network | * Global Transit Gateway \n * Local Transit Gateway (TGW) | Local Transit Gateway (TGW) | The Local Transit Gateway enables connectivity between the Management and Workload VPCs. |
-{: caption="Table 3. Cloud native connectivity architecture decisions" caption-side="bottom"}
-
-## Load balancing architecture decisions
-{: #network-segmentation-isolation}
-
-Intro text...
-
-| Architecture Decision | Requirement | Alternative | Decision | Rationale |
-| -------------- | -------------- | -------------- | -------------- | -------------- |
-| Application Load Balancer | Route web user http/https requests | * VPC ALB \n * VPC NLB | VPC ALB | * VPC ALB is recommended for web-based workloads. \n * Provides layer 4 and layer 7 load balancing \n * Supports HTTP, HTTPS, and TCP requests \n * Supports SSL offloading. |
-| Local Load Balancing: App & DB Tiers | Distribute requests across zones for high availability | * Public VPC ALB \n * Private VPC ALB \n * Public VPC NLB \n * Private VPC NLB | Private ALB | The Private VPC ALB distributes traffic among virtual servers within the app and DB tiers. The VPC ALB is configured with subnets across multiple zones for multi-zone availability. |
-{: caption="Table 4. Load balancing architecture decisions" caption-side="bottom"}
-
-## Domain name system architecture decisions
-{: #dns}
-
-Intro text...
-
-| Architecture Decision | Requirement | Alternative | Decision | Rationale |
-| -------------- | -------------- | -------------- | -------------- | -------------- |
-| Public DNS | Provide DNS resolution to support use of hostnames instead of IP addresses for applications | * IBM Cloud Internet Services (CIS) \n * IBM Cloud DNS	IBM Cloud Internet Services (CIS) | IBM Cloud DNS	IBM Cloud Internet Services (CIS) | IBM Cloud Internet Services supports provisioning and configuring DNS records for public DNS resolution and can be integrated with the public VPC ALBs for the web tier. |
-{: caption="Table 5. Domain name system (DNS) architecture decisions" caption-side="bottom"}
+|  1                    | DR Approach   | - Ensure availability of resources in the event of unplanned outages - Establish alternate site for failover of workloads in the event of failure in the primary site - Support business targets for RPO/RTO - Support Business Continuity and Disaster Recovery plans  | - Active-Active - Active-Standby / Hot DR Site - Active-Standby / Warm DR Site - Backup & Restore (Cold DR Site)   | Active-Active                   | Recommended approach for: - Mission critical applications with continuous availability requirements and near zero RPO/RTO                                                        |
+|                       |               |                                                                                                                                                                                                                                                                         |                                                                                                                    | Active-Standby / Hot DR Site    | Recommended approach for: Core business applications with  - High availability requirements  - RPO \< 15 mins - RTO \< 1 hour                                                    |
+|                       |               |                                                                                                                                                                                                                                                                         |                                                                                                                    | Active-Standby / Warm DR Site   | Recommended approach for: Core business applications with  - medium to high availability requirements  - RPO \< 1 hour - RTO \< 4 hours                                          |
+|                       |               |                                                                                                                                                                                                                                                                         |                                                                                                                    | Backup & Restore (Cold DR Site) | Recommended approach for: - Dev/test environments - Low priority workloads                                                                                                       |
+| 2                     | DR Automation | - Automate recovery tasks to minimize down time                                                                                                                                                                                                                         | - IBM Schematics - Terraform - Ansible - BYO tool                                                                  | IBM Schematics                  | - IBM Schematics provides Terraform-as-a-Service and Ansible-as-a-Service to automate the provisioning and configuration management of the web, app, and DB tiers in the DR site |
+{: caption="Table 1. Disaster recovery architecture decisions" caption-side="bottom"}

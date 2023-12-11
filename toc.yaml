@@ -8,15 +8,12 @@ toc:
     authors:
         - name: Carol Hernandez
           url: https://www.linkedin.com/in/carolbhernandez/
-    industry: industry-value
-    use-case: use-case-value
-    compliance: compliance-value
     audience: solution
     content-type: white-paper
     href: /docs/whitepaper-vpc-resiliency
     path: whitepaper-vpc-resiliency
     description: Design considerations and architecture decisions for deploying resilient applications on IBM Cloud Virtual Private Cloud (VPC) infrastructure.
-    label: VPC Resiliency
+    label: Virtual Private Cloud Resiliency
 
   entries:
   - navgroup:

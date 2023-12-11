@@ -13,56 +13,85 @@ keywords:
 # Networking architecture decisions
 {: #networking-architecture}
 
-Let's write a short description...
-
-## Enterprise connectivity architecture decisions
-{: #enterprise-connectivity}
-
-And, then let's introduce the table. Something like: "The following are enterprise connectivity architecture decisions for this design."
-
-| Architecture Decision | Requirement | Alternative | Decision | Rationale |
-| -------------- | -------------- | -------------- | -------------- | -------------- |
-| Connectivity for management | Provide secure, encrypted connectivity to the cloud’s private network for management purposes. | * Client VPN for VPC \n * VPN for VPC | Client VPN for VPC | Client VPN for VPC provides client-to-site connectivity, which allows remote devices to securely connect to the VPC network using an OpenVPN software client. |
-{: caption="Table 1. Enterprise connectivity architecture decisions" caption-side="bottom"}
-
-## Network segmentation and isolation architecture decisions
-{: #network-segmentation-isolation}
-
-Intro text...
-
-| Architecture Decision | Requirement | Alternative | Decision | Rationale |
-| -------------- | -------------- | -------------- | -------------- | -------------- |
-| Web App Deployment | * Deploy workloads in isolated environment and enforce information flow policies. \n * Provide isolated security zones between app tiers	- Virtual Private Clouds (VPCs) | * Virtual Private Clouds (VPCs) \n * Subnets \n * Security Groups (SGs) \n * ACLs | VPCs, subnets, Security Groups (SGs) and ACLs | VPCs provide secure, virtual networks for web apps which are logically isolated from other public cloud tenants. Subnets provide a range of private IP addresses for each Web app tier within a zone. Security Groups and ACLs are used as firewalls to limit access to virtual servers and web app tiers. |
-{: caption="Table 2. Network segmentation and isolation architecture decisions" caption-side="bottom"}
-
-## Cloud native connectivity architecture decisions
-{: #cloud-native-connectivity}
-
-Intro text...
-
-| Architecture Decision | Requirement | Alternative | Decision | Rationale |
-| -------------- | -------------- | -------------- | -------------- | -------------- |
-| Connectivity to Cloud Services | Provide secure connection to Cloud Services | * VPC Gateway + Virtual Private Endpoints (VPE) \n * Private Cloud Service endpoints \n * Public Cloud Service Endpoints | VPC Gateway + Virtual Private Endpoints (VPE) | VPC Gateway + Virtual Private Endpoints enable connectivity to IBM Cloud services using private IP addresses allocated from a VPC subnet. |
-| VPC to VPC Connectivity | Connect two or more VPCs over private network | * Global Transit Gateway \n * Local Transit Gateway (TGW) | Local Transit Gateway (TGW) | The Local Transit Gateway enables connectivity between the Management and Workload VPCs. |
-{: caption="Table 3. Cloud native connectivity architecture decisions" caption-side="bottom"}
+The following sections summarize the networking architecture decisions for resilient solutions on IBM Cloud VPC infrastructure.
 
 ## Load balancing architecture decisions
-{: #network-segmentation-isolation}
+{: #load-balancing}
 
-Intro text...
-
-| Architecture Decision | Requirement | Alternative | Decision | Rationale |
+| No. | Architecture Decision | Requirement | Alternative | Decision | Rationale |
 | -------------- | -------------- | -------------- | -------------- | -------------- |
-| Application Load Balancer | Route web user http/https requests | * VPC ALB \n * VPC NLB | VPC ALB | * VPC ALB is recommended for web-based workloads. \n * Provides layer 4 and layer 7 load balancing \n * Supports HTTP, HTTPS, and TCP requests \n * Supports SSL offloading. |
-| Local Load Balancing: App & DB Tiers | Distribute requests across zones for high availability | * Public VPC ALB \n * Private VPC ALB \n * Public VPC NLB \n * Private VPC NLB | Private ALB | The Private VPC ALB distributes traffic among virtual servers within the app and DB tiers. The VPC ALB is configured with subnets across multiple zones for multi-zone availability. |
-{: caption="Table 4. Load balancing architecture decisions" caption-side="bottom"}
+| 1.1                             | Application Load Balancer | - Route web user http/https requests                                                                                        | - VPC ALB - VPC NLB                                              | VPC ALB                              | VPC ALB is recommended for web-based workloads. - Provides layer 4 and layer 7 load balancing - Supports HTTP, HTTPS, and TCP requests - Supports SSL offloading.                                          |
+|                                 |                           |                                                                                                                             |                                                                  | VPC NLB                              | VPC NLB is recommended for workloads that require low latency and high data throughput or VNF routing. - Provides layer 4 load balancing - Supports Source IP Preservation - Supports Direct Server Return |
+| 1.2                             | Global Load Balancing     | - Distribute requests across regions or fail over workloads to alternate region in the event of failure in the primary site | - IBM Cloud DNS (Private) - IBM Cloud Internet Services (public) | IBM Cloud Internet Services (public) | The Cloud Internet Services (CIS) Global Load Balancer distributes user requests across regions in multi-region app deployments.                                                                           |
+{: caption="Table 1. Load balancing architecture decisions" caption-side="bottom"}
 
 ## Domain name system architecture decisions
 {: #dns}
 
-Intro text...
-
-| Architecture Decision | Requirement | Alternative | Decision | Rationale |
+| No. | Architecture Decision | Requirement | Alternative | Decision | Rationale |
 | -------------- | -------------- | -------------- | -------------- | -------------- |
-| Public DNS | Provide DNS resolution to support use of hostnames instead of IP addresses for applications | * IBM Cloud Internet Services (CIS) \n * IBM Cloud DNS	IBM Cloud Internet Services (CIS) | IBM Cloud DNS	IBM Cloud Internet Services (CIS) | IBM Cloud Internet Services supports provisioning and configuring DNS records for public DNS resolution and can be integrated with the public VPC ALBs for the web tier. |
-{: caption="Table 5. Domain name system (DNS) architecture decisions" caption-side="bottom"}
+| 2.1                             | Public DNS                | - Provide DNS resolution to support use of hostnames instead of IP addresses for applications                               | - IBM Cloud Internet Services (CIS) - IBM Cloud DNS              | IBM Cloud Internet Services (CIS)    | IBM Cloud Internet Services supports provisioning and configuring DNS records for public DNS resolution and can be integrated with the public VPC ALBs for the web tier.                                   |
+| 2.2                             | Private DNS               |                                                                                                                             | - IBM Cloud DNS                                                  | IBM Cloud DNS                        | IBM Cloud DNS manages private DNS records, resolves domain names from IBM Cloud's private network, and can be integrated with the private VPC ALBs for the app and DB tiers. |
+{: caption="Table 2. Domain name system (DNS) architecture decisions" caption-side="bottom"}
+
+# Security architecture decisions
+{: #security}
+
+## Data encryption architecture decisions
+{: #encryption}
+
+| No. | Architecture Decision | Requirement | Alternative | Decision | Rationale |
+| -------------- | -------------- | -------------- | -------------- | -------------- |
+| 1.1                                                            | Encryption Approach            | - Encrypt all data to protect from unauthorized disclosure                                             | - Encryption with provider keys - Encryption with customer-managed keys                           | Encryption with customer-managed keys          | Encrypting data with customer-managed keys is recommended since it provides added security and customer control needed to meet regulatory compliance requirements.                                                                                                                                                                                                                                                                 |
+| 1.2                                                            | Data Encryption Application    | - Encrypt all application data to protect from unauthorized disclosure                                 | - Storage encryption with customer-managed keys - App-level encryption with customer-managed keys | Storage Encryption with customer-managed keys  | Application data can be stored on VPC File, VPC Block, or Cloud Object Storage (COS) which support encryption with customer-managed keys by selecting a Key Management Service (KMS) for the respective storage service.                                                                                                                                                                                                           |
+| 1.3                                                            | Data Encryption  Backups       | - Encrypt all backup data to protect from unauthorized disclosure                                      | Storage encryption with customer-managed keys App-level encryption                                | Storage encryption with customer-managed keys  | Backup data can be stored in COS or VPC Block storage which support encryption with customer-managed keys by selecting a KMS.                                                                                                                                                                                                                                                                                                      |
+| 1.4                                                            | Data Encryption  Logs          | - Encrypt all operational and audit logs at rest to protect from unauthorized disclosure               | Storage encryption with customer-managed keys App-level encryption                                | Storage encryption with customer-managed keys  | All operational and audit logs are stored in COS which supports encryption with customer-managed keys by selecting a KMS. |
+{: caption="Table 3. Data encryption architecture decisions" caption-side="bottom"}
+
+## Key management architecture decisions
+{: #kms}
+
+| No. | Architecture Decision | Requirement | Alternative | Decision | Rationale |
+| -------------- | -------------- | -------------- | -------------- | -------------- |
+| 2.1                                                            | Key Lifecycle Management & HSM | - Encrypt data at rest and in transit using customer managed keys to protect from unauthorized access  | Key Protect Hyper Protect Crypto Services (HPCS)                                                  | Key Protect                                    | Key Protect is recommended for applications that need to comply with regulations requiring encryption of data with customer-managed keys. Key Protect provides key management services using a shared (multi-tenant) FIPS 140-2 Level 3 certified hardware security modules (HSMs).                                                                                                                                                |
+|                                                                |                                |                                                                                                        |                                                                                                   | Hyper Protect Crypto Services (HPCS)           | HPCS is recommended for financial services and highly regulated industry applications. HPCS provides Key Management Services with the highest level of security and control offered by any cloud provider in the industry. It uses a dedicated (single-tenant) FIPS 140-2 Level 4 certified Hardware Security Module and supports customer-managed master keys, giving the customer exclusive control of the entire key hierarchy. |
+| 2.2                                                            | Certificate Management         | - Protect secrets through their entire lifecycle and secure them using access control measures         | Secrets Manager BYO Certificate Manager                                                           | Secrets Manager                                | IBM Secrets Manager creates, leases, and centrally manages secrets used by IBM Cloud Services or customer applications. Secrets are stored in a dedicated instance of Secrets Manager and can be encrypted using any of IBM Cloud Key Management Services. |
+{: caption="Table 4. Key management architecture decisions" caption-side="bottom"}
+
+# Service management architecture decisions
+{: #service}
+
+## Monitoring architecture decisions
+{: #monitoring}
+
+| No. | Architecture Decision | Requirement | Alternative | Decision | Rationale |
+| -------------- | -------------- | -------------- | -------------- | -------------- |
+| 1.1               | Operational Monitoring of Cloud infrastructure and services | - Monitor system and app health to determine need to failover to alternate site. Operational metrics include CPU and memory usage, API response times, etc.     | - IBM Cloud Monitoring - BYO Monitoring Tool                       | IBM Cloud Monitoring                                               | - IBM Cloud Monitoring collects and monitors operational metrics for cloud infrastructure as well as cloud platform and services and provides a single view for all metrics                                                                                                 |
+| 1.2               | Operational Monitoring for Applications                     |                                                                                                                                                                 | - IBM Cloud Monitoring - Instana (SaaS) - BYO Monitoring Tool      | IBM Cloud Monitoring + Instana (SaaS)                              | - Use Instana along with IBM Cloud Monitoring to get additional application performance metrics and automate application performance management. Instana provides data and actionable insights to monitor the applications and automate root-cause analysis.                |
+{: caption="Table 5. Monitoring architecture decisions" caption-side="bottom"}
+
+## Logging architecture decisions
+{: #logging}
+
+| No. | Architecture Decision | Requirement | Alternative | Decision | Rationale |
+| -------------- | -------------- | -------------- | -------------- | -------------- |
+| 1.1               | Operational Monitoring of Cloud infrastructure and services | - Monitor system and app health to determine need to failover to alternate site. Operational metrics include CPU and memory usage, API response times, etc.     | - IBM Cloud Monitoring - BYO Monitoring Tool                       | IBM Cloud Monitoring                                               | - IBM Cloud Monitoring collects and monitors operational metrics for cloud infrastructure as well as cloud platform and services and provides a single view for all metrics                                                                                                 |
+| 1.2               | Operational Monitoring for Applications                     |                                                                                                                                                                 | - IBM Cloud Monitoring - Instana (SaaS) - BYO Monitoring Tool      | IBM Cloud Monitoring + Instana (SaaS)                              | - Use Instana along with IBM Cloud Monitoring to get additional application performance metrics and automate application performance management. Instana provides data and actionable insights to monitor the applications and automate root-cause analysis.                |
+{: caption="Table 6. Logging architecture decisions" caption-side="bottom"}
+
+## Auditing architecture decisions
+{: #auditing}
+
+| No. | Architecture Decision | Requirement | Alternative | Decision | Rationale |
+| -------------- | -------------- | -------------- | -------------- | -------------- |
+| 3.1               | Audit Logging                                               | - Monitor audit logs to track changes to cloud resources and detect potential security problems                                                                 | IBM Cloud Activity Tracker - Hosted Event Search - Event Routing   | IBM Cloud Activity Tracker- Hosted Event Search                    | IBM Cloud Activity Tracker-Hosted Event Search provides interfaces to capture, store, view, search, and monitor user-initiated actions to provision, access, and manage IBM Cloud resources.                                                                                |
+{: caption="Table 6. Auditing architecture decisions" caption-side="bottom"}
+
+## Alerting architecture decisions
+{: #alerting}
+
+| No. | Architecture Decision | Requirement | Alternative | Decision | Rationale |
+| -------------- | -------------- | -------------- | -------------- | -------------- |
+| 4.1               | Operational alerts                                          | - Provide a mechanism to identify and send notifications about operational issues found across application and infrastructure                                   | IBM Cloud Monitoring +  IBM Cloud Logging + Event Notifications    | IBM Cloud Monitoring +  IBM Cloud Logging + Event Notifications    | - IBM Cloud Monitoring and IBM Cloud Logging support the configuration of alerts to detect operational issues and send notifications to targeted channels.  Event Notifications can be used to route the alert events to service destinations to automate response actions. |
+| 4.2               | Audit alerts                                                | - Provide a mechanism to identify and send notifications about issues found in audit logs                                                                       | IBM Cloud Activity Tracker + IBM Monitoring +  Event Notifications | IBM Cloud Activity Tracker + IBM Monitoring +  Event Notifications | - IBM Activity Tracker supports the configuration of alerts to detect audit issues and send notifications to targeted channels.  Event Notifications can be used to route the alert events to service destinations to automate response actions.                            |
+{: caption="Table 6. Alerting architecture decisions" caption-side="bottom"}
