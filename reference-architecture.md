@@ -48,11 +48,7 @@ https://test.cloud.ibm.com/docs/solution-as-code?topic=solution-as-code-naming-g
 
 # Title
 {: #title-id}
-{: toc-content-type="reference-architecture"}
-{: toc-industry="value"}
-{: toc-use-case="value"}
-{: toc-compliance="value"}
-{: toc-version="value"}
+{: toc-content-type=white-paper}
 
 <!--
 The IDs, such as {: #title-id} are required for publishing this reference architecture in IBM Cloud Docs. Set unique IDs for each heading. Also include

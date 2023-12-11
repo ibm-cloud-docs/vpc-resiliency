@@ -10,12 +10,15 @@ keywords:
 
 ---
 
-# Networking architecture decisions
+# Other architecture decisions
+{: #other-architecture}
+
+## Networking architecture decisions
 {: #networking-architecture}
 
 The following sections summarize the networking architecture decisions for resilient solutions on IBM Cloud VPC infrastructure.
 
-## Load balancing architecture decisions
+### Load balancing architecture decisions
 {: #load-balancing}
 
 | No. | Architecture Decision | Requirement | Alternative | Decision | Rationale |
@@ -25,7 +28,7 @@ The following sections summarize the networking architecture decisions for resil
 | 1.2                             | Global Load Balancing     | - Distribute requests across regions or fail over workloads to alternate region in the event of failure in the primary site | - IBM Cloud DNS (Private) - IBM Cloud Internet Services (public) | IBM Cloud Internet Services (public) | The Cloud Internet Services (CIS) Global Load Balancer distributes user requests across regions in multi-region app deployments.                                                                           |
 {: caption="Table 1. Load balancing architecture decisions" caption-side="bottom"}
 
-## Domain name system architecture decisions
+### Domain name system architecture decisions
 {: #dns}
 
 | No. | Architecture Decision | Requirement | Alternative | Decision | Rationale |
@@ -34,10 +37,12 @@ The following sections summarize the networking architecture decisions for resil
 | 2.2                             | Private DNS               |                                                                                                                             | - IBM Cloud DNS                                                  | IBM Cloud DNS                        | IBM Cloud DNS manages private DNS records, resolves domain names from IBM Cloud's private network, and can be integrated with the private VPC ALBs for the app and DB tiers. |
 {: caption="Table 2. Domain name system (DNS) architecture decisions" caption-side="bottom"}
 
-# Security architecture decisions
+## Security architecture decisions
 {: #security}
 
-## Data encryption architecture decisions
+The following sections summarize the security architecture decisions for resilient solutions on IBM Cloud VPC infrastructure.
+
+### Data encryption architecture decisions
 {: #encryption}
 
 | No. | Architecture Decision | Requirement | Alternative | Decision | Rationale |
@@ -48,7 +53,7 @@ The following sections summarize the networking architecture decisions for resil
 | 1.4                                                            | Data Encryption  Logs          | - Encrypt all operational and audit logs at rest to protect from unauthorized disclosure               | Storage encryption with customer-managed keys App-level encryption                                | Storage encryption with customer-managed keys  | All operational and audit logs are stored in COS which supports encryption with customer-managed keys by selecting a KMS. |
 {: caption="Table 3. Data encryption architecture decisions" caption-side="bottom"}
 
-## Key management architecture decisions
+### Key management architecture decisions
 {: #kms}
 
 | No. | Architecture Decision | Requirement | Alternative | Decision | Rationale |
@@ -58,10 +63,12 @@ The following sections summarize the networking architecture decisions for resil
 | 2.2                                                            | Certificate Management         | - Protect secrets through their entire lifecycle and secure them using access control measures         | Secrets Manager BYO Certificate Manager                                                           | Secrets Manager                                | IBM Secrets Manager creates, leases, and centrally manages secrets used by IBM Cloud Services or customer applications. Secrets are stored in a dedicated instance of Secrets Manager and can be encrypted using any of IBM Cloud Key Management Services. |
 {: caption="Table 4. Key management architecture decisions" caption-side="bottom"}
 
-# Service management architecture decisions
+## Service management architecture decisions
 {: #service}
 
-## Monitoring architecture decisions
+The following sections summarize the service management architecture decisions for resilient solutions on IBM Cloud VPC infrastructure.
+
+### Monitoring architecture decisions
 {: #monitoring}
 
 | No. | Architecture Decision | Requirement | Alternative | Decision | Rationale |
@@ -70,7 +77,7 @@ The following sections summarize the networking architecture decisions for resil
 | 1.2               | Operational Monitoring for Applications                     |                                                                                                                                                                 | - IBM Cloud Monitoring - Instana (SaaS) - BYO Monitoring Tool      | IBM Cloud Monitoring + Instana (SaaS)                              | - Use Instana along with IBM Cloud Monitoring to get additional application performance metrics and automate application performance management. Instana provides data and actionable insights to monitor the applications and automate root-cause analysis.                |
 {: caption="Table 5. Monitoring architecture decisions" caption-side="bottom"}
 
-## Logging architecture decisions
+### Logging architecture decisions
 {: #logging}
 
 | No. | Architecture Decision | Requirement | Alternative | Decision | Rationale |
@@ -79,7 +86,7 @@ The following sections summarize the networking architecture decisions for resil
 | 1.2               | Operational Monitoring for Applications                     |                                                                                                                                                                 | - IBM Cloud Monitoring - Instana (SaaS) - BYO Monitoring Tool      | IBM Cloud Monitoring + Instana (SaaS)                              | - Use Instana along with IBM Cloud Monitoring to get additional application performance metrics and automate application performance management. Instana provides data and actionable insights to monitor the applications and automate root-cause analysis.                |
 {: caption="Table 6. Logging architecture decisions" caption-side="bottom"}
 
-## Auditing architecture decisions
+### Auditing architecture decisions
 {: #auditing}
 
 | No. | Architecture Decision | Requirement | Alternative | Decision | Rationale |
@@ -87,7 +94,7 @@ The following sections summarize the networking architecture decisions for resil
 | 3.1               | Audit Logging                                               | - Monitor audit logs to track changes to cloud resources and detect potential security problems                                                                 | IBM Cloud Activity Tracker - Hosted Event Search - Event Routing   | IBM Cloud Activity Tracker- Hosted Event Search                    | IBM Cloud Activity Tracker-Hosted Event Search provides interfaces to capture, store, view, search, and monitor user-initiated actions to provision, access, and manage IBM Cloud resources.                                                                                |
 {: caption="Table 6. Auditing architecture decisions" caption-side="bottom"}
 
-## Alerting architecture decisions
+### Alerting architecture decisions
 {: #alerting}
 
 | No. | Architecture Decision | Requirement | Alternative | Decision | Rationale |
