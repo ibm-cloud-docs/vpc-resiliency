@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023
-lastupdated: "2023-11-28"
+lastupdated: "2023-12-12"
 
 subcollection: whitepaper-vpc-resiliency
 
@@ -15,28 +15,11 @@ keywords:
 # Backup and restore architecture decisions
 {: #backup-and-restore-architecture}
 
-<!-- Note to author>    THIS SHOULD BE ABOUT 10 – 15 LINES AND FOLLOW….
-The objective of this pattern is to provide a solution design for……. -->
-
-This pattern is intended to:
-* Accelerate and simplify solution design by providing a standard IBM Cloud deployment architecture reference following the IBM Architecture Framework.
-* Provide a prescriptive, end-2-end enterprise-class solution design, with diagrams, component architecture decisions along with rationale for cloud component selection to meet enterprise requirements.
-* Ensure requirements can be met from a performance, system availability and security perspective.
-
-<!-- Add any clarifications of what is in scope/out of scope, make sure you address these points in the doc) -->
-
-<!-- Note to author> THIS SHOULD IDEALLY TAKE UP THE REST OF THE PAGE AND FOLLOW
- ABC pattern allows customers to……(what is the compelling reason to use this pattern?)
-The IBM …….consists of …(compelling reason to use IBM Cloud, i.e. specific IBM cloud offering)
-Use the following text for reference to Architecture Framework aspects and domains. -->
-
-Following the Architecture Framework, the `<Pattern Name>` covers design considerations and architecture decisions for the following aspects and domains:
-<!-- Note to author> <List the aspects and domains covered in this pattern; Here is an example:-->
-- Compute: Virtual Servers
-- Storage: Primary Storage, Backup Storage
-- Networking: Enterprise Connectivity, Segmentation and Isolation, Cloud Native Connectivity, Load Balancing, DNS
-- Security: Data Security, Identity and Access Management, Application Security, Infrastructure and Endpoint Security
-- Resiliency: High Availability, Backup and Restore
-- Service Management: Monitoring, Logging, Auditing, Alerting
-
-The Architecture Framework provides a consistent approach to design cloud solutions by addressing requirements across a set of "aspects" and "domains", which are technology-agnostic architectural areas that need to be considered for any enterprise solution. For more details, see [Introduction to the Architecture Framework](/docs/architecture-framework).
+| Architecture Decision | Requirement | Alternative | Decision | Rationale |
+| -------------- | -------------- | -------------- | -------------- | -------------- |
+| App server backup | Backup App server to enable re-deployment of application in the event of unplanned outages | * IBM Cloud Backup \n * IBM Storage Protect | IBM Cloud Backup | Use Cloud Backup to create volume snapshots of App servers when application-consistent backups are not required. |
+| DB server backup  | Backup DB server images to enable recovery of databases in the event of unplanned outages | * IBM Cloud Backup \n * IBM Storage Protect | IBM Storage Protect | Use Storage Protect to backup DB servers in DB tier since this is also the recommended tool for transaction consistent backups for the data volumes. |
+| DB backup | Create transaction consistent database backups to enable recovery of database tier in the event of unplanned outages | * IBM Storage Protect \n * DB Backup Tool \n * BYO Tool | IBM Storage Protect | Use Storage Protect for application consistent backups of the database. \n * Storage Protect supports Oracle, IBM Db2, MongoDB, Microsoft SQL Server, SAP HANA |
+| File Backup | Create file system backups for according to business processes | * IBM Storage Protect \n * BYO Backup Tool | IBM Storage Protect | Use Storage Protect if there is a business need to backup or recover specific files. |
+| Backup Automation | Schedule regular database backups based on RPO requirements to enable data recovery in the event of unplanned outages | * IBM Cloud Backup \n * IBM Storage Protect \n * BYO Backup Tool | IBM Storage Protect | Use Storage Protect to schedule regular backups for the DB tier and define backup policies to manage the creation and deletion of backups. |
+{: caption="Table 1. Backup and restore architecture decisions" caption-side="bottom"}

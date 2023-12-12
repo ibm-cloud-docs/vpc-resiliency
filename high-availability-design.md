@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023
-lastupdated: "2023-11-28"
+lastupdated: "2023-12-12"
 
 subcollection: whitepaper-vpc-resiliency
 
@@ -47,10 +47,12 @@ Multi-zone deployments rely on application-aware data replication across availab
 | **Deployment**             | **Availability** | **Description**                                                                                                                                                                  | **Recommended Usage**                                                                                                                                                                      |
 |------------------|------------------|------------------|------------------|
 | Single Zone                | 99.9%[^footnote1]           | - Multiple compute instances in one zone \n - Protection from infrastructure failures \n - Low/Medium cost \n | - Low to medium priority applications \n - Non-production workloads |
-| Multi-zone,  Single Region | 99.99%[^footnote1]          | - Multiple compute instances across 2 or more availability zones \n - Synchronous data replication across zones \n - Protection from zone outages \n - Medium/high cost | - Core business applications \n - Production level workloads with stringent resiliency requirements \n - Business continuity policies with country boundaries or geo data residence constraints |
-| Multi-zone,  Multi-Region  | \>99.99%[^footnote2]        | - Multiple compute instances across multiple availability zones in 2 or more regions \n - Asynchronous data replication across regions \n - Protection from region outages \n - High cost | - Mission critical applications with continuous or near continuous availability requirements \n - Business continuity policies with cross geo or distance requirements \n - Disaster Recovery |
+| Multi-zone,  Single Region | 99.99%[^footnote2]          | - Multiple compute instances across 2 or more availability zones \n - Synchronous data replication across zones \n - Protection from zone outages \n - Medium/high cost | - Core business applications \n - Production level workloads with stringent resiliency requirements \n - Business continuity policies with country boundaries or geo data residence constraints |
+| Multi-zone,  Multi-Region  | \>99.99%[^footnote3]        | - Multiple compute instances across multiple availability zones in 2 or more regions \n - Asynchronous data replication across regions \n - Protection from region outages \n - High cost | - Mission critical applications with continuous or near continuous availability requirements \n - Business continuity policies with cross geo or distance requirements \n - Disaster Recovery |
 {: caption="Table 2. High availability deployment options" caption-side="bottom"}
 
 [^footnote1]: Based on Cloud infrastructure [SLA](https://www.ibm.com/support/customer/csol/terms/?id=i126-9268&lc=en#detail-document) . 99.99% availability requires redundant deployments across 3 availability zones within a region and application designed following active-active clustering architecture.
 
-[^footnote2]: Based on active-active architecture with application-aware data replication across regions
+[^footnote2]: Based on Cloud infrastructure [SLA](https://www.ibm.com/support/customer/csol/terms/?id=i126-9268&lc=en#detail-document) . 99.99% availability requires redundant deployments across 3 availability zones within a region and application designed following active-active clustering architecture.
+
+[^footnote3]: Based on active-active architecture with application-aware data replication across regions
