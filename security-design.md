@@ -23,7 +23,7 @@ IBM Cloud data services encrypt data by default using randomly generated keys an
 |                               | SSL/TLS certificates                                                 | Data in-transit encryption              |               |                        |
 | Key Protect                   | Symmetric encryption keys                                            | Data at-rest encryption TLS/SSL Offload | Multi tenant  | FIPS 140-2 Level 3 HSM |
 | Hyper Protect Crypto Services | Symmetric encryption keys                                            | Data at-rest-encryption TLS/SSL Offload | Single tenant | FIPS 140-2 Level 4 HSM |
-{: caption="Table 1. [Key features of IBM Cloud data protection services]" caption-side="bottom"}
+{: caption="Table 1. Key features of IBM Cloud data protection services" caption-side="bottom"}
 
 Secret Management and Key Management Solutions in IBM Cloud are regional services deployed across multiple availability zones in a region for resiliency. For optimal performance and security, keep the root keys in the same region as the encrypted resources and follow disaster recovery recommendations for each data protection service, as follows:
 

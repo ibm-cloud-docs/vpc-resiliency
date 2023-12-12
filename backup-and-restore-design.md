@@ -34,11 +34,11 @@ Backup and restore can be considered as a Disaster Recovery strategy to recover 
 
 | **Backup Feature**            | **IBM Storage Protect**                                                 | **IBM Cloud Backup for VPC**                                                                 |
 |-------------------------------|-------------------------------------------------------------------------|----------------------------------------------------------------------------------------------|
-| **Backup Capabilities**       | Agent based Scheduled backups Backups Management                        | Scheduled backups Backups Management Fast restore clone Cross-regional copies                |
+| **Backup Capabilities**       | Agent based \n Scheduled backups \n Backups Management                        | Scheduled backups \n Backups Management \n Fast restore clone \n Cross-regional copies                |
 | **Backup Scope**              | Selected VSIs, selected volumes or files in VSIs                        | Selected volumes (boot or data) attached to any VSIs                                         |
 | **File/Folder level support** | Yes                                                                     | No                                                                                           |
 | **Backup Storage**            | VPC Block Storage or IBM COS                                            | IBM COS                                                                                      |
 | **Database Protection**       | Application Consistent Backup (Oracle, IBM Db2, MongoDB, MS SQL Server) | Not supported                                                                                |
 | **Encryption**                | In-transit and at rest                                                  | In-transit and at rest                                                                       |
 | **Recommendation**            | DB or folder level backup for multiple VSIs                             | Complex backup operations for multiple VSIs that do not require application data consistency |
-{: caption="Table 1. Backup options for VPC VSIs" caption-side="bottom"}
+{: caption="Table 1. Compariosn of backup options for VPC VSIs" caption-side="bottom"}
