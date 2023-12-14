@@ -12,7 +12,7 @@ keywords:
 
 {{site.data.keyword.attribute-definition-list}}
 
-# Resiliency Concepts
+# Resiliency concepts
 {: #concepts}
 
 ## High Availability

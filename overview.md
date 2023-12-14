@@ -12,7 +12,7 @@ keywords:
 
 {{site.data.keyword.attribute-definition-list}}
 
-# Virtual Private Cloud Resiliency
+# VPC Resiliency Overview
 {: #overview}
 
 High Availability and Disaster Recovery are important considerations to meet continuous business operations and resiliency requirements for enterprise workloads.

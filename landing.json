@@ -1,7 +1,7 @@
 {
-  "title": "VPC Resiliency ",
+  "title": "Virtual Private Cloud Resiliency",
   "lastupdated": "2023-12-14",
-  "introduction": "The VPC Resiliency architecture patterns provide recommendations for deploying resilient enterprise workloads on IBM Cloud VPC infrastructure.",
+  "introduction": "The Virtual Private Cloud Resiliency whitepaper provides design considerations and architecture decisions for deploying resilient applications on IBM Cloud Virtual Private Cloud (VPC) infrastructure. The following reference architectures provide solution patterns for deploying resilient enterprise workloads on IBM Cloud VPC infrastructure.",
   "section_architectures": [
     {
       "title": "Web App Cross-Region Resiliency",
