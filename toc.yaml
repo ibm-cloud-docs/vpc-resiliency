@@ -46,19 +46,16 @@ toc:
       - topicgroup:
           label: Architecture decisions
           topics:
+          - topic: high-availability-architecture.md
+            navtitle: High availability
+          - topic: backup-and-restore-architecture.md
+            navtitle: Backup and restore
+          - topic: disaster-recovery-architecture.md
+            navtitle: Disaster recovery
           - topic: networking-architecture.md
             navtitle: Networking
           - topic: security-architecture.md
             navtitle: Security
-          - topicgroup:
-              label: Resiliency
-              topics:
-              - topic: high-availability-architecture.md
-                navtitle: High availability
-              - topic: backup-and-restore-architecture.md
-                navtitle: Backup and restore
-              - topic: disaster-recovery-architecture.md
-                navtitle: Disaster recovery
           - topic: service-management-architecture.md
             navtitle: Service management
 
@@ -66,8 +63,3 @@ toc:
       id: reference
       topics:
       - references.md
-
-  - navgroup:
-      id: help
-      topics:
-      - topic: topic-10.md

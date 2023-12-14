@@ -21,32 +21,34 @@ High availability solutions are designed to minimize down time under normal oper
 
 Cloud platforms are intrinsically built to tolerate failures and provide features to help build reliable and highly available solutions such as: 1. elastic compute and storage at various geographic locations, 2. availability zones engineered to be isolated from failures in other zones, and 3. highly available cloud services deployed across multiple zones or regions, e.g. object storage, Database as a service. However, just moving an application to the cloud does not make it fault-tolerant or highly available. Application resiliency in public clouds is a shared responsibility. To build resilient applications in the cloud you must:
 
-1. Design applications for availability and recoverability, e.g. applications are
+- Design applications for availability and recoverability, e.g. applications are
 
-    1. built to scale using modern design practices and microservices architecture for scalability and portability.
+    - built to scale using modern design practices and microservices architecture for scalability and portability.
 
-    2. built for resiliency using highly available patterns.
+    - built for resiliency using highly available patterns.
 
-    3. DevOps-enabled to support automated provisioning and continuous integration and delivery (CI/CD).
+    - DevOps-enabled to support automated provisioning and continuous integration and delivery (CI/CD).
 
-    4. Infrastructure as Code (IaC) enabled for automated provisioning and configuration management.
+    - Infrastructure as Code (IaC) enabled for automated provisioning and configuration management.
 
-2. Leverage platform and infrastructure deployment patterns for high availability and disaster recovery.
+- Leverage platform and infrastructure deployment patterns for high availability and disaster recovery.
 
-3. Use data replication and backups to protect the data and support failover and disaster recovery.
+- Use data replication and backups to protect the data and support failover and disaster recovery.
 
-4. Implement Operations Management strategy to support availability targets, e.g.
+- Implement Operations Management strategy to support availability targets, e.g.
 
-   1. establish DevOps process and toolchain for continuous integration / continuous delivery, GitOps enabled for Day 2 operations and procedures.
+   - establish DevOps process and toolchain for continuous integration / continuous delivery, GitOps enabled for Day 2 operations and procedures.
 
-   2. monitor the application and platform infrastructure to detect failures and degradations.
+   - monitor the application and platform infrastructure to detect failures and degradations.
 
-   3. setup alerts and operations to automate problem resolution and enable a timely response to incidents.
+   - setup alerts and operations to automate problem resolution and enable a timely response to incidents.
 
-This document provides design considerations and architecture decisions for deploying resilient applications on IBM Cloud Virtual Private Cloud (VPC) infrastructure. It covers the following solution aspects and domains:
+Following the [Architecture Framework](https://cloud.ibm.com/docs/architecture-framework?topic=architecture-framework-intro)\*, this document provides design considerations and architecture decisions for deploying resilient applications on IBM Cloud Virtual Private Cloud (VPC) infrastructure. It covers the following solution aspects and domains:
 - **Networking:** Load Balancing, DNS
 - **Security:** Data Security
 - **Resiliency:** High Availability, Backup and Restore
 - **Service Management:** Monitoring, Logging, Auditing, Alerting
+
+![Web App Cross-Region Resiliency Solution Design Scope](heat-map-vpc-resiliency.svg){: caption="Figure 1. VPC Resiliency Architecture Design Scope" caption-side="bottom"}
 
 The Architecture Framework provides a consistent approach to design cloud solutions by addressing requirements across a set of "aspects" and "domains", which are technology-agnostic architectural areas that need to be considered for any enterprise solution. For more details, see [Introduction to the Architecture Framework](/docs/architecture-framework).
