@@ -8,10 +8,12 @@ toc:
     authors:
         - name: Carol Hernandez
           url: https://www.linkedin.com/in/carolbhernandez/
+        - name: Doyoung Im
+          url: https://www.linkedin.com/in/doyoung-im-b13bab20/
     audience: solution
     content-type: white-paper
     # industry: industry-value
-    # use-case: use-case-value
+    use-case: VirtualPrivateCloud
     # compliance: compliance-value
     href: /docs/vpc-resiliency
     path: vpc-resiliency

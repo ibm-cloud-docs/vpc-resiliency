@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023
-lastupdated: "2023-12-12"
+lastupdated: "2023-12-14"
 
 subcollection: vpc-resiliency
 
@@ -29,7 +29,7 @@ The following tables summarize the service management architecture decisions for
 
 | Architecture Decision | Requirement | Alternative | Decision | Rationale |
 | -------------- | -------------- | -------------- | -------------- | -------------- |
-| Log Monitoring of Cloud infrastructure and services | Monitor operational logs to detect issues that might impact the availability of the system and app. | - IBM Cloud Logging \n - BYO Logging Tool | IBM Cloud Logging | - IBM Cloud Logging collects operational logs from applications, platform resources, and infrastructure and provides interfaces to view and analyze all logs. |
+| Log Monitoring of Cloud infrastructure and services | Monitor operational logs to detect issues that might impact the availability of the system and app. | - IBM Cloud Logging \n - BYO Logging Tool | IBM Cloud Logging | IBM Cloud Logging collects operational logs from applications, platform resources, and infrastructure and provides interfaces to view and analyze all logs. |
 | Log Monitoring of Applications | | - IBM Cloud Logging \n - Application Logging Tool \n - BYO Logging Tool | IBM Cloud Logging + Application Logging Tool | Use Application Logging Tool to send application logs to IBM Cloud Logging and aggregate application-specific log details. |
 {: caption="Table 6. Logging architecture decisions" caption-side="bottom"}
 

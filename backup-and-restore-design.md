@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023
-lastupdated: "2023-12-12"
+lastupdated: "2023-12-14"
 
 subcollection: vpc-resiliency
 
@@ -17,7 +17,7 @@ The backup and restore solution for an enterprise application deployed in the cl
 
 Restoring data from a backup might take a long time (hours to days) depending on the amount of data to be restored. Therefore, backup and restore must not be considered as a mechanism for achieving high availability.
 
-Backup and restore can be considered as a Disaster Recovery strategy to recover non-production workloads or production workloads that can tolerate recovery time objectives (RTO) and recovery point objectives (RPO) in the range of days. See Disaster Recovery design considerations for details.
+Backup and restore can be considered as a Disaster Recovery strategy to recover non-production workloads or production workloads that can tolerate recovery time objectives (RTO) and recovery point objectives (RPO) in the range of days. See [Disaster Recovery Approaches](/docs/vpc-resiliency?topic=vpc-resiliency-disaster-recovery-design#disaster-recovery-approach) for details.
 
 ## Backup and Restore Options on IBM Cloud
 {: #backup-and-restore-options}

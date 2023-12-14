@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023
-lastupdated: "2023-12-12"
+lastupdated: "2023-12-14"
 
 subcollection: vpc-resiliency
 
@@ -13,13 +13,15 @@ keywords:
 # Service management design
 {: #service-management-design}
 
-Operations Management is a key aspect of building resilient applications. To support the application availability targets you must:
+Operations Management is a key aspect of building resilient applications. To support the application availability targets, do the following:
 
 -   Continuously monitor the application and platform infrastructure to detect failures and degradations.
 
 -   Integrate automated monitoring with rich notification tooling to automate problem resolution and enable a timely response to incidents.
 
-It is important to monitor the health of all the components of the solution, including infrastructure, cloud services, and application as well as operational logs to detect and correct issues that might affect the availability of enterprise applications. Proper operational monitoring can help you determine whether you need to fail over to an alternate site or whether operations have returned to normal after a system disruption. Equally important is to track and monitor all activity performed on the IBM Cloud to detect changes and potential security threats that might impact the availability of the applications deployed on IBM Cloud. \n \n
+It is important to monitor the health of all the components of the solution, including infrastructure, cloud services, and application as well as operational logs to detect and correct issues that might affect the availability of enterprise applications. Proper operational monitoring can help you determine whether you need to fail over to an alternate site or whether operations have returned to normal after a system disruption.
+
+Equally important is to track and monitor all activity performed on the IBM Cloud to detect changes and potential security threats that might impact the availability of the applications deployed on IBM Cloud.
 
 Implement incident detection, notification, escalation, discovery, and declaration to provide realistic, achievable objectives that add business value.
 

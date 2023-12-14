@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023
-lastupdated: "2023-12-12"
+lastupdated: "2023-12-14"
 
 subcollection: vpc-resiliency
 
@@ -13,9 +13,11 @@ keywords:
 # Security design
 {: #security-design}
 
-It is important to use encryption to protect data from unauthorized disclosure. All application data, including configuration and meta data, as well as all security data, including logs and credentials to access application or cloud resources must be protected.
+Data security is important to protect application data from unauthorized disclosure and changes. All application data, including configuration and meta data, as well as all security data, including logs and credentials to access application or cloud resources must be protected.
 
-IBM Cloud data services encrypt data by default using randomly generated keys and support encryption with customer-managed keys using a Key Management Service (KMS). The following table provides an overview of data protection services in IBM Cloud.
+IBM Cloud data services encrypt data by default using randomly generated keys and support encryption with customer-managed keys using a Key Management Service (KMS).
+
+The following table provides an overview of data protection services in IBM Cloud.
 
 | **Services**                  | **Secret Types**                                                     | **Usage**                               | **Tenancy**   | **HSM Backed**         |
 |-------------------------------|----------------------------------------------------------------------|-----------------------------------------|---------------|------------------------|

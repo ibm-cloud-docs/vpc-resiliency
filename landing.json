@@ -1,0 +1,12 @@
+{
+  "title": "VPC Resiliency ",
+  "lastupdated": "2023-12-14",
+  "introduction": "The VPC Resiliency architecture patterns provide recommendations for deploying resilient enterprise workloads on IBM Cloud VPC infrastructure.",
+  "section_architectures": [
+    {
+      "title": "Web App Cross-Region Resiliency",
+      "href": "/docs/pattern-vpc-vsi-cross-region-resiliency?topic=pattern-vpc-vsi-cross-region-resiliency-web-app-cross-region",
+      "deployable": false
+    }
+  ]
+}
