@@ -15,14 +15,14 @@ keywords:
 # Resiliency concepts
 {: #concepts}
 
-## High Availability
+## High availability
 {: #high-availability}
 
-High Availability (HA) is the ability of a system or application to keep running in a healthy state, without significant downtime.
+High availability is the ability of a system or application to keep running in a healthy state, without significant downtime.
 
-A common practice for achieving high availability is to use redundant resources to avoid single points of failure. Leverage availability zones and regions on IBM Cloud to implement redundant deployments and fault isolation patterns for the application infrastructure. Use platform as a service and other cloud services that are provisioned across multiple availability zones to provide built-in resiliency. However, to meet business continuity requirements, the application must also be designed for high availability.
+A common practice for achieving high availability is to use redundant resources to avoid single points of failure. Use availability zones and regions on IBM Cloud to implement redundant deployments and fault isolation patterns for the application infrastructure. Use platform as a service and other cloud services that are provisioned across multiple availability zones to provide built-in resiliency. However, to meet business continuity requirements, the application must also be designed for high availability.
 
-Applications designed for high availability are typically deployed in clusters following an active-active or active-standby architecture.
+Applications that are designed for high availability are typically deployed in clusters with an active-active or active-standby architecture.
 
 ### Active-Active architecture
 {: #active-active}
@@ -37,15 +37,15 @@ In an active-standby architecture, two instances of the application are deployed
 ## Backup and Restore
 {: #backup}
 
-Backups are used to provide protection from data loss. Backup and restore solutions create copies of data and support restoring data from backup copies to enable the recovery of lost or compromised data in the event of an unplanned outage, such as hardware failure, data center failure, data corruption, accidental deletion, or even a cybersecurity breach.
+Backups are used to provide protection from data loss. Backup and restore solutions create copies of data and supports restoring data from backup copies to enable the recovery of lost or compromised data if an unplanned outage occurs. For example, hardware failure, data center failure, data corruption, accidental deletion, or even a cybersecurity breach.
 
 ## Disaster Recovery
 {: #disaster-recovery}
 
-Disaster Recovery is the ability to protect a system or application from natural or unplanned outages by having a set of policies, tools, and procedures to enable the recovery or continuation of vital technology infrastructure and applications following an event, whatever the cause (e.g. natural disaster or outage caused by hardware failure, data corruption, accidental deletion, cybersecurity breach, etc.)
+Disaster Recovery is the ability to protect a system or application from natural or unplanned outages by having a set of policies, tools, and procedures to enable the recovery or continuation of vital technology infrastructure and applications following an event. Examples of events to plan for include a natural disaster or outage that is caused by hardware failure, data corruption, accidental deletion, cybersecurity breach, and so on.
 
 Disaster Recovery requirements are generally expressed in terms of:
 
--   Recovery Time Objective (RTO): the targeted duration of time within which a business process shall be restored after a disaster or outage.
+- Recovery Time Objective (RTO): The targeted duration of time within which a business process is restored after a disaster or outage.
 
--   Recovery Point Objective (RPO): the maximum targeted time period in which data might be lost from an IT service due to a disaster or outage.
+- Recovery Point Objective (RPO): The maximum targeted time period in which data might be lost from an IT service due to a disaster or outage.
