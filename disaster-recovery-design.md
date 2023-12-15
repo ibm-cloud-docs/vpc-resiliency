@@ -44,7 +44,7 @@ In the Active/Active approach, the application stack is deployed in both the pri
 
 The following table summarizes the main Disaster Recovery approaches and recommended use.
 
-| DR approach               | RPO (data loss) \n **RTO (data recovery)             | Cost | Recommended use  |
+| DR approach               | RPO (data loss) \n RTO (data recovery)             | Cost | Recommended use  |
 |------------------|---------------------|----------|---------|
 | Backup and restore \n (Cold DR Site) \n - Regular data backups available in DR site \n - Infrastructure and app are deployed on demand in DR site upon outage / unavailability of primary site \n - App and data that is restored from backups                  | RPO: Med/High (based on backup frequency) \n RTO: High (hours to days)          | Low      | - Dev or test environments \n - Low-priority workloads           |
 | Active-Standby \n (Warm or Hot DR Site) \n - Application that is deployed in primary and standby site \n - User transactions that are handled by primary site \n - Data that is replicated to standby site \n - Client transactions rerouted to standby site when primary site is unavailable \n \n Warm DR Site \n - Minimum compute capacity that is deployed at standby site and scaled on demand upon outage/unavailability of primary site | Warm DR Site \n - RPO: Low (data replication) \n - RTO: Medium (minutes to hours)  | Medium   | Core business applications \n - medium to high availability requirements \n - RPO \< 1-hour \n - RTO \< 4 hours  |
@@ -54,7 +54,7 @@ The following table summarizes the main Disaster Recovery approaches and recomme
 
 DR approaches can be combined with high-availability deployment options to meet availability and Disaster Recovery objectives for enterprise workloads. The following table provides a comparison of the High Availability and Disaster Recovery options.
 
-| HA/DR deployment | Single-zone \n Single-region | Multi-zone \n Single-region | Multi-zone \n Multi-region \n \n Cold DR Site | Multi-zone \n Multi-region \n \n Active-Standby \n Warm DR Site  | Multi-zone \n Multi-region \n \n Active-Standby \n Hot DR Site  | Multi-zone \n Multi-region \n \n Active-Active |
+| HA/DR deployment | Single-zone, Single-region | Multi-zone, Single-region | Multi-zone, Multi-region \n Cold DR Site | Multi-zone, Multi-region \n Active-Standby \n Warm DR Site  | Multi-zone, Multi-region \n Active-Standby \n Hot DR Site  | Multi-zone, Multi-region \n Active-Active |
 |------------|------------|------------|------------|------------|------------|------------|
 | Availability         | Low                               | Medium/High[^footnote1]                     | Medium/High                     | High               | High/Very High    | Very High  |
 | Failure Domain       | Virtual Server                    | Zone                             | Region/Geo                      | Region/Geo         | Region/Geo        | Region/Geo |
