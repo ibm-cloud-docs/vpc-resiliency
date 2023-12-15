@@ -7,6 +7,11 @@
       "title": "Web App Cross-Region Resiliency",
       "href": "/docs/pattern-vpc-vsi-cross-region-resiliency?topic=pattern-vpc-vsi-cross-region-resiliency-web-app-cross-region",
       "deployable": false
+    },
+    {
+      "title": "Web App Multi-Zone Resiliency",
+      "href": "/docs/pattern-vpc-vsi-multizone-resiliency?topic=pattern-vpc-vsi-multizone-resiliency-web-app-multi-zone",
+      "deployable": false
     }
   ]
 }
