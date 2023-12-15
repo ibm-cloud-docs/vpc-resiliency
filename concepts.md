@@ -34,12 +34,12 @@ In an active-active architecture, two active instances of the application are de
 
 In an active-standby architecture, two instances of the application are deployed: an active instance and a standby instance. However, application requests are sent to the active instance only. A load balancer is used to route requests to the standby instance when the active instance becomes unavailable. Stateful applications, like databases, require synchronous data replication between instances.
 
-## Backup and Restore
+## Backup and restore
 {: #backup}
 
 Backups are used to provide protection from data loss. Backup and restore solutions create copies of data and supports restoring data from backup copies to enable the recovery of lost or compromised data if an unplanned outage occurs. For example, hardware failure, data center failure, data corruption, accidental deletion, or even a cybersecurity breach.
 
-## Disaster Recovery
+## Disaster recovery
 {: #disaster-recovery}
 
 Disaster Recovery is the ability to protect a system or application from natural or unplanned outages by having a set of policies, tools, and procedures to enable the recovery or continuation of vital technology infrastructure and applications following an event. Examples of events to plan for include a natural disaster or outage that is caused by hardware failure, data corruption, accidental deletion, cybersecurity breach, and so on.

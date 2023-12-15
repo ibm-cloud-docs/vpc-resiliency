@@ -10,7 +10,7 @@ keywords:
 
 ---
 
-# Security architecture decisions
+# Architecture decisions for security
 {: #security-architecture}
 
 The following tables summarize the security architecture decisions for deploying resilient workloads on IBM Cloud VPC infrastructure.

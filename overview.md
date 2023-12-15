@@ -23,7 +23,9 @@ Cloud platforms are intrinsically built to tolerate failures and provide feature
 
 1. Elastic compute and storage at various geographic locations.
 2. Availability zones engineered to be isolated from failures in other zones
-3. Highly available cloud services that are deployed across multiple zones or regions, for example object storage, Database as a service. However, just moving an application to the cloud does not make it fault-tolerant or highly available. Application resiliency in public clouds is a shared responsibility.
+3. Highly available cloud services that are deployed across multiple zones or regions, for example object storage, Database as a service. 
+
+However, just moving an application to the cloud does not make it fault-tolerant or highly available. Application resiliency in public clouds is a shared responsibility.
 
 To build resilient applications in the cloud, you must:
 - Design applications for availability and recoverability, for example applications are

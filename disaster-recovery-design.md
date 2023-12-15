@@ -27,7 +27,7 @@ A disaster recovery solution needs to consider the application’s high availabi
 
 Disaster Recovery approaches can be summarized as follows:
 
-### Backup & Restore (Cold DR Site)
+### Backup and restore (Cold DR Site)
 {: #backup-restore-dr}
 
 The backup and restore approach centers around the consistent and periodic creation of copies of essential data and system configurations. These backups serve as point-in-time snapshots of the data, capturing the last known consistent state of the information that can be used for recovery purposes. The backups must be stored in a separate location from the primary site to enable recovery if unplanned outages occur affecting the primary site. The recovery process requires the use of backups to provision infrastructure and build the application in the recovery site and to restore the data. Thus, the recovery site is considered a Cold DR site. Depending on the backup frequency and retention policy, the restoration process can return the application to its state before the incident occurred. The time required to restore the data and the amount of data that might potentially be lost between backups (RPO) might impact the speed and completeness of the recovery process. Therefore, this approach is recommended for environments or workloads that can tolerate high recovery times (RTO), for example for dev or test environments or low-priority workloads.

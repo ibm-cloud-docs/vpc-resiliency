@@ -19,7 +19,7 @@ Restoring data from a backup might take a long time (hours to days) depending on
 
 Backup and restore can be considered as a Disaster Recovery strategy to recover nonproduction or production workloads that can tolerate recovery time objectives (RTO) and recovery point objectives (RPO) in the range of days. For more information, see [Disaster Recovery Approaches](/docs/vpc-resiliency?topic=vpc-resiliency-disaster-recovery-design#disaster-recovery-approach) for details.
 
-## Backup and Restore Options on IBM Cloud
+## Backup and restore options on IBM Cloud
 {: #backup-and-restore-options}
 
 [IBM Cloud Backup for VPC](/docs/vpc?topic=vpc-backup-service-about&interface=ui) is a cloud service that supports the creation and management of boot and data storage volume snapshots. Use IBM Cloud Backup for VPC to schedule regular backups and restore applications deployed in Virtual Servers for VPC when application-consistent backups are not required.

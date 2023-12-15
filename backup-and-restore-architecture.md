@@ -12,12 +12,12 @@ keywords:
 
 {{site.data.keyword.attribute-definition-list}}
 
-# Backup and restore architecture decisions
+# Architecture decisions for backup and restore
 {: #backup-and-restore-architecture}
 
 The following table summarizes the backup and restore architecture decisions for deploying resilient workloads on IBM Cloud VPC infrastructure.
 
-| Architecture Decision | Requirement | Alternative | Decision | Rationale |
+| Architecture decision | Requirement | Alternative | Decision | Rationale |
 | -------------- | -------------- | -------------- | -------------- | -------------- |
 | App server backup | Use the Backup App server to enable redeployment of application if any unplanned outages occur. | - IBM Cloud Backup for VPC \n - IBM Storage Protect | IBM Cloud Backup for VPC | IBM Cloud Backup for VPC supports fast restore from volume snapshots in the same zone and is recommended to backup App servers when application-consistent backups are not required. |
 | DB server backup  | Use the Backup Database server images to enable recovery of databases if any unplanned outages occur. | - IBM Cloud Backup for VPC \n - IBM Storage Protect | IBM Storage Protect | Use Storage Protect to back up database servers. Storage Protect is also the recommended tool for transaction consistent backups for the database application. |
