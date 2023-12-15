@@ -10,12 +10,12 @@ keywords:
 
 ---
 
-## Networking architecture decisions
+# Networking architecture decisions
 {: #networking-architecture}
 
 The following tables summarize the networking architecture decisions for deploying resilient workloads on IBM Cloud VPC infrastructure.
 
-### Load balancing architecture decisions
+## Load balancing architecture decisions
 {: #load-balancing}
 
 | Architecture Decision | Requirement | Alternative | Decision | Rationale |
@@ -25,7 +25,7 @@ The following tables summarize the networking architecture decisions for deployi
 | Global Load Balancing | Distribute application requests across regions or fail over application to alternate region in the event of failure in the primary region. | - IBM Cloud DNS (Private) \n - IBM Cloud Internet Services (public) | IBM Cloud Internet Services (public) | The Cloud Internet Services (CIS) Global Load Balancer distributes user requests across regions in multi-region application deployments. |
 {: caption="Table 1. Load balancing architecture decisions" caption-side="bottom"}
 
-### Domain name system architecture decisions
+## Domain name system architecture decisions
 {: #dns}
 
 | Architecture Decision | Requirement | Alternative | Decision | Rationale |
