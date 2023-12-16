@@ -40,7 +40,7 @@ To build resilient applications in the cloud, you must:
    - monitor the application and platform infrastructure to detect failures and degradations.
    - setup alerts and operations to automate problem resolution and enable a timely response to incidents.
 
-Following the [Architecture Framework](/docs/architecture-framework?topic=architecture-framework), this document provides design considerations and architecture decisions for deploying resilient applications on IBM Cloud Virtual Private Cloud (VPC) infrastructure. It covers the following solution aspects and domains:
+Following the [Architecture Framework](/docs/architecture-framework?topic=architecture-framework-intro), this document provides design considerations and architecture decisions for deploying resilient applications on IBM Cloud Virtual Private Cloud (VPC) infrastructure. It covers the following solution aspects and domains:
 - **Networking:** Load balancing, Domain name system
 - **Security:** Data security
 - **Resiliency:** High Availability, Backup and restore, Disaster recovery
