@@ -15,19 +15,19 @@ keywords:
 
 Data security is important to protect application data from unauthorized disclosure and changes. All application data, including configuration and metadata, as well as all security data, including logs and credentials to access application or cloud resources must be protected.
 
-IBM Cloud data services encrypt data by default by using randomly generated keys and support encryption with customer-managed keys by using a Key Management Service (KMS).
+IBM Cloud data services encrypt data by default by using randomly generated keys and support encryption with customer-managed keys by using a key management service (KMS).
 
 The following table provides an overview of data protection services in IBM Cloud.
 
 | Services        | Secret types        | Use         | Tenancy   | HSM Backed        |
 |-------------------------------|----------------------------------------------------------------------|-----------------------------------------|---------------|------------------------|
-| Secrets Manager               | Arbitrary secrets IAM credentials Key-value secrets User Credentials | Access to resources                     | Single tenant | N/A                    |
+| Secrets Manager               | Arbitrary secrets \n IAM credentials \n Key-value secrets \n User credentials | Access to resources                     | Single tenant | N/A                    |
 |                               | SSL/TLS certificates                                                 | Data in-transit encryption              |               |                        |
-| Key Protect                   | Symmetric encryption keys                                            | Data at-rest encryption TLS/SSL Offload | Multi-tenant  | FIPS 140-2 Level 3 HSM |
-| Hyper Protect Crypto Services | Symmetric encryption keys                                            | Data at-rest-encryption TLS/SSL Offload | Single tenant | FIPS 140-2 Level 4 HSM |
+| Key Protect                   | Symmetric encryption keys                                            | Data at-rest encryption \n  TLS/SSL Offload | Multi-tenant  | FIPS 140-2 Level 3 HSM |
+| Hyper Protect Crypto Services | Symmetric encryption keys                                            | Data at-rest-encryption \n TLS/SSL Offload | Single tenant | FIPS 140-2 Level 4 HSM |
 {: caption="Table 1. Key features of IBM Cloud data protection services" caption-side="bottom"}
 
-Secrets Manager and Key Management Services in IBM Cloud are regional services that are deployed across multiple availability zones in a region for resiliency. For optimal performance and security, keep the root keys in the same region as the encrypted resources and follow disaster recovery recommendations for each data protection service, as follows:
+Secrets Manager and key management services in IBM Cloud are regional services that are deployed across multiple availability zones in a region for resiliency. For optimal performance and security, keep the root keys in the same region as the encrypted resources and follow disaster recovery recommendations for each data protection service, as follows:
 
 - To ensure cross-region availability of the secrets, provision a Secrets Manager instance in an alternative region and copy the secrets in the alternative region. For more information, see [Manually backing up secrets](/docs/secrets-manager?topic=secrets-manager-ha-dr&interface=ui#manual-backup).
 

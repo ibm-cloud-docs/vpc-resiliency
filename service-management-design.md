@@ -13,7 +13,7 @@ keywords:
 # Service management design
 {: #service-management-design}
 
-Operations Management is a key aspect of building resilient applications. To support the application availability targets:
+Operations management is a key aspect of building resilient applications. To support the application availability targets:
 
 - Continuously monitor the application and platform infrastructure to detect failures and degradations.
 

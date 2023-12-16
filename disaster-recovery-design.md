@@ -25,7 +25,7 @@ A disaster recovery solution needs to consider the application’s high availabi
 ## Disaster recovery approaches
 {: #disaster-recovery-approach}
 
-Disaster Recovery approaches can be summarized as follows:
+Disaster recovery approaches can be summarized as follows:
 
 ### Backup and restore (Cold DR site)
 {: #backup-restore-dr}
@@ -42,7 +42,7 @@ In the Active/standby approach, the application stack is deployed in both the pr
 
 In the Active/active approach, the application stack is deployed in both the primary and the secondary site. The application is active in both the primary and the secondary sites and user’s transactions are handled by the application in any of the sites. Application data, metadata, configuration data, and security data are replicated to the secondary site. A global load balancer distributes requests across the two sites. With this approach, it is possible to achieve near zero RPO and RTO. This is the costliest approach and the most complex from an application design perspective. It is recommended for critical applications that require continuous availability and near zero RPO/RTO.
 
-The following table summarizes the main Disaster Recovery approaches and recommended use.
+The following table summarizes the main disaster recovery approaches and recommended use.
 
 | DR approach               | RPO (data loss) \n RTO (data recovery)             | Cost | Recommended use  |
 |------------------|---------------------|----------|---------|
@@ -62,7 +62,7 @@ DR approaches can be combined with high-availability deployment options to meet 
 | Cost                 | Low                               | Medium                           | Medium                          | Medium/High        | High              | High       |
 | Complexity           | Low                               | Medium                           | Low                             | Medium/High        | High              | Very High  |
 | Operational Risk     | Low                               | Low                              | High                            | Medium             | Low/Medium        | Low        |
-{: caption="Table 2. Disaster recovery and availability options" caption-side="bottom"}
+{: caption="Table 2. Disaster recovery and high availability deployment options" caption-side="bottom"}
 
 [^footnote1]: Availability depends on the number of zones (2 or 3) and app/database HA design
 
@@ -79,11 +79,11 @@ The following table provides recommended DR approaches based on business applica
 ## Disaster recovery automation on IBM Cloud
 {: #disaster-recovery-automation}
 
-Automating operations is important to enable rapid and consistent recovery processes in response to failures for Cold DR site and Warm DR site Disaster Recovery approaches.
+Automating operations is important to enable rapid and consistent recovery processes in response to failures for Cold DR site and Warm DR site disaster recovery approaches.
 
 Use [IBM Cloud Schematics](https://cloud.ibm.com/schematics/overview) to implement runbooks for recovery processes. Schematics workspaces provide Terraform-as-a-Service and Schematics Actions provides Ansible-as-a-Service. [Schematics workspaces](/docs/schematics?topic=schematics-sc-workspaces) automates the deployment and management of IBM Cloud infrastructure and services. Schematics Actions automates configuration management and runs scripted day-2 operations. See [Schematics Use Cases](/docs/schematics?topic=schematics-how-it-works) for more details.
 
-The following table provides a list of recommendations for automating operations to implement Disaster Recovery.
+The following table provides a list of recommendations for automating operations to implement disaster recovery.
 
 | Operations | Recommendations | Description |
 |-------------|-------------|--------------|

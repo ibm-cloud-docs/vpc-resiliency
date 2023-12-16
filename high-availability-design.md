@@ -17,14 +17,14 @@ IBM Cloud supports high availability application deployments in a single zone, a
 
 Failure domains determine the level of protection from infrastructure failures for each option. Application instances that are deployed in multiple availability zones are within a metro area that is connected over a low latency network and data can be replicated synchronously across the zones. Application instances that are deployed in multiple regions are typically in different geos that are connected over a WAN and data can be replicated asynchronously across the regions. The following table shows application deployment options based on failure domains available in a public cloud.
 
-| HA deployment | Single-zone, \n Single-region | Multi-zone, \n Single-region | Multi-zone, \n Multi-region |
+| HA deployment | Single-zone, \n single-region | Multi-zone, \n single-region | Multi-zone, \n multi-region |
 |-------------------|-----------------------------------|------------------------------------|-----------------------------------|
 | Availability      | Low/Med                           | High                               | Very High                         |
 | Failure domain    | Virtual Server / Physical Host    | Zone                               | Region                            |
 | Cost / Complexity | Low                               | Medium                             | High                              |
 {: caption="Table 1. High availability deployment options" caption-side="bottom"}
 
-## High availability deployment options on IBM Cloud
+## High availability deployment options
 {: #high-availability-deployments}
 
 ### Single-zone deployment
@@ -48,8 +48,8 @@ Multi-zone deployments rely on application-aware data replication across availab
 |------------------|------------------|------------------|------------------|
 | Single-zone                | 99.9%[^footnote1]           | - Multiple compute instances in one zone \n - Protection from infrastructure failures \n - Low/Medium cost \n | - Low to medium priority applications \n - Nonproduction workloads |
 | Multi-zone, single-region | 99.99%[^footnote2]          | - Multiple compute instances across 2 or more availability zones \n - Synchronous data replication across zones \n - Protection from zone outages \n - Medium/high cost | - Core business applications \n - Production level workloads with stringent resiliency requirements \n - Business continuity policies with country boundaries or geo data residence constraints |
-| Multi-zone, multi-region  | &amp;gt;99.99%[^footnote3]        | - Multiple compute instances across multiple availability zones in 2 or more regions \n - Asynchronous data replication across regions \n - Protection from region outages \n - High cost | - Mission-critical applications with continuous or near continuous availability requirements \n - Business continuity policies with cross geo or distance requirements \n - Disaster Recovery |
-{: caption="Table 2. High availability deployment options" caption-side="bottom"}
+| Multi-zone, multi-region  | &amp;gt;99.99%[^footnote3]        | - Multiple compute instances across multiple availability zones in 2 or more regions \n - Asynchronous data replication across regions \n - Protection from region outages \n - High cost | - Mission-critical applications with continuous or near continuous availability requirements \n - Business continuity policies with cross geo or distance requirements \n - Disaster recovery |
+{: caption="Table 2. High availability deployment recommendations" caption-side="bottom"}
 
 [^footnote1]: Based on Cloud infrastructure [SLA](https://www.ibm.com/support/customer/csol/terms/?id=i126-9268&lc=en#detail-document). 99.99% availability requires redundant deployments across 3 availability zones within a region and an application that is designed following an active-active clustering architecture.
 

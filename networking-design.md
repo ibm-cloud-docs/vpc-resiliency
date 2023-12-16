@@ -14,7 +14,7 @@ keywords:
 # Networking design
 {: #networking-design}
 
-IBM Cloud Virtual Private Cloud infrastructure and network services support multi-zone and multi-region deployment architectures for high availability and disaster recovery.
+IBM Cloud virtual private cloud infrastructure and network services support multi-zone and multi-region deployment architectures for high availability and disaster recovery.
 
 Load balancers for VPC are used to distribute traffic across multiple zones within a region and support highly available configurations. There are two types of load balancers for VPC:
 
@@ -41,7 +41,7 @@ The following table shows a comparison of these Load Balancers.
 | Member type              | Virtual server instances                                                                                                                                                                                                                        | Virtual server instances, Bare Metal, Power Systems Virtual Server                                                                         |
 {: caption="Table 1. Comparison of load balancers for VPC" caption-side="bottom"}
 
-{{site.data.keyword.cis_full}} (({{site.data.keyword.cis_short_notm}})) provides a global load balancer that can distribute traffic on the public network across availability zones within a region in a multi-zone deployment or across multiple regions in a multi-region deployment.
+{{site.data.keyword.cis_full}} ({{site.data.keyword.cis_short_notm}}) provides a global load balancer that can distribute traffic on the public network across availability zones within a region in a multi-zone deployment or across multiple regions in a multi-region deployment.
 
 In active-active DR deployments, use {{site.data.keyword.cis_full}} to reduce network latency for application users in different geographies. Define location-based pools and configure CIS to redirect users to the closest VPC load balancer based on the geographical location of the user requests.
 
