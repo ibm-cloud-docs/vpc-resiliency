@@ -48,4 +48,4 @@ Following the [Architecture Framework](/docs/architecture-framework?topic=archit
 
 ![VPC resiliency architecture design scope](heat-map-vpc-resiliency.svg){: caption="Figure 1. VPC resiliency architecture design scope" caption-side="bottom"}
 
-The Architecture Framework provides a consistent approach to design cloud solutions by addressing requirements across a set of "aspects" and "domains", which are technology-agnostic architectural areas that need to be considered for any enterprise solution. For more details, see [Introduction to the Architecture Framework](/docs/architecture-framework-intro).
+The Architecture Framework provides a consistent approach to design cloud solutions by addressing requirements across a set of "aspects" and "domains", which are technology-agnostic architectural areas that need to be considered for any enterprise solution. For more details, see [Introduction to the Architecture Framework](/docs/architecture-framework?topic=architecture-framework-intro).

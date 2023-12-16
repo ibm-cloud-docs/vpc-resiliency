@@ -1,7 +1,7 @@
 {
   "title": "Virtual private cloud resiliency",
   "lastupdated": "2023-12-15",
-  "introduction": "Cloud platforms are intrinsically built to tolerate failures and provide features to help build reliable and highly available solutions. However, just moving an application to the cloud does not make it fault-tolerant or highly available. This document provides design considerations and architecture decisions for deploying resilient applications on IBM Cloud Virtual Private Cloud infrastructure.",
+  "introduction": "Cloud platforms are intrinsically built to tolerate failures and provide features to help build reliable and highly available solutions. However, just moving an application to the cloud does not make it fault-tolerant or highly available. \n This document provides design considerations and architecture decisions for deploying resilient applications on IBM Cloud Virtual Private Cloud infrastructure.",
   "section_architectures": [
     {
       "title": "Web app cross-region resiliency",
