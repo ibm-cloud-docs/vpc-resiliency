@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023
-lastupdated: "2023-12-14"
+lastupdated: "2023-12-15"
 
 subcollection: vpc-resiliency
 
@@ -17,10 +17,10 @@ IBM Cloud supports high availability application deployments in a single zone, a
 
 Failure domains determine the level of protection from infrastructure failures for each option. Application instances that are deployed in multiple availability zones are within a metro area that is connected over a low latency network and data can be replicated synchronously across the zones. Application instances that are deployed in multiple regions are typically in different geos that are connected over a WAN and data can be replicated asynchronously across the regions. The following table shows application deployment options based on failure domains available in a public cloud.
 
-| HA deployment | Single-Zone, \n Single-Region | Multi-Zone, \n Single-Region | Multi-Zone, \n Multi-Region |
+| HA deployment | Single-zone, \n Single-region | Multi-zone, \n Single-region | Multi-zone, \n Multi-region |
 |-------------------|-----------------------------------|------------------------------------|-----------------------------------|
 | Availability      | Low/Med                           | High                               | Very High                         |
-| Failure Domain    | Virtual Server / Physical Host    | Zone                               | Region                            |
+| Failure domain    | Virtual Server / Physical Host    | Zone                               | Region                            |
 | Cost / Complexity | Low                               | Medium                             | High                              |
 {: caption="Table 1. High availability deployment options" caption-side="bottom"}
 
@@ -44,7 +44,7 @@ A multi-zone, multi-region deployment provides protection against region outages
 
 Multi-zone deployments rely on application-aware data replication across availability zones and support active-active and active-standby architecture patterns. Multi-zone, multi-region deployments support architecture patterns for enterprise applications with continuous availability/always on requirements. The following tables show a comparison of the different deployment options and recommended use.
 
-| Deployment    | Availability | Description   | Recommended usage   |
+| Deployment    | Availability | Description   | Recommended use   |
 |------------------|------------------|------------------|------------------|
 | Single-zone                | 99.9%[^footnote1]           | - Multiple compute instances in one zone \n - Protection from infrastructure failures \n - Low/Medium cost \n | - Low to medium priority applications \n - Nonproduction workloads |
 | Multi-zone, single-region | 99.99%[^footnote2]          | - Multiple compute instances across 2 or more availability zones \n - Synchronous data replication across zones \n - Protection from zone outages \n - Medium/high cost | - Core business applications \n - Production level workloads with stringent resiliency requirements \n - Business continuity policies with country boundaries or geo data residence constraints |
