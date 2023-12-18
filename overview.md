@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023
-lastupdated: "2023-12-14"
+lastupdated: "2023-12-18"
 
 subcollection: vpc-resiliency
 
