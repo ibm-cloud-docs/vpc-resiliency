@@ -12,7 +12,7 @@ keywords:
 
 {{site.data.keyword.attribute-definition-list}}
 
-# IBM Cloud VPC resiliency overview
+# VPC resiliency overview
 {: #overview}
 
 High availability and disaster recovery are important considerations to meet continuous business operations and resiliency requirements for enterprise workloads.
