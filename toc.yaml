@@ -18,7 +18,7 @@ toc:
     href: /docs/vpc-resiliency
     path: vpc-resiliency
     description: Design considerations and architecture decisions for deploying resilient applications on IBM Cloud VPC infrastructure.
-    label: IBM VPC resiliency
+    label: IBM Cloud VPC resiliency
 
   entries:
   - navgroup:
