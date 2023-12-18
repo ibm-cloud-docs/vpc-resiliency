@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023
-lastupdated: "2023-12-14"
+lastupdated: "2023-12-18"
 
 subcollection: vpc-resiliency
 
@@ -12,7 +12,7 @@ keywords:
 
 {{site.data.keyword.attribute-definition-list}}
 
-# VPC resiliency overview
+# IBM Cloud VPC resiliency overview
 {: #overview}
 
 High availability and disaster recovery are important considerations to meet continuous business operations and resiliency requirements for enterprise workloads.
