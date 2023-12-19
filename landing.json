@@ -1,0 +1,17 @@
+{
+  "title": "IBM Cloud VPC resiliency",
+  "lastupdated": "2023-12-18",
+  "introduction": "Cloud platforms are intrinsically built to tolerate failures and provide features to help build reliable and highly available solutions. However, just moving an application to the cloud does not make it fault-tolerant or highly available. \n This document provides design considerations and architecture decisions for deploying resilient applications on IBM Cloud VPC infrastructure.",
+  "section_architectures": [
+    {
+      "title": "Web app cross-region resiliency",
+      "href": "/docs/pattern-vpc-vsi-cross-region-resiliency?topic=pattern-vpc-vsi-cross-region-resiliency-web-app-cross-region",
+      "deployable": false
+    },
+    {
+      "title": "Web app multi-zone resiliency",
+      "href": "/docs/pattern-vpc-vsi-multizone-resiliency?topic=pattern-vpc-vsi-multizone-resiliency-web-app-multi-zone",
+      "deployable": false
+    }
+  ]
+}

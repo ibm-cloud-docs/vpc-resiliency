@@ -1,0 +1,67 @@
+#  Name your file `toc.yaml`
+#  Make sure you include all nav file coding requirements, as defined in https://test.cloud.ibm.com/docs/writing?topic=writing-code-nav
+#  Anything with a fully qualified URL with `http` or `https` will get an external link icon added to the nav entry
+---
+toc:
+  properties:
+    subcollection: vpc-resiliency
+    authors:
+        - name: Carol Hernandez
+          url: https://www.linkedin.com/in/carolbhernandez/
+        - name: Doyoung Im
+          url: https://www.linkedin.com/in/doyoung-im-b13bab20/
+    audience: solution
+    content-type: white-paper
+    # industry: industry-value
+    use-case: VirtualPrivateCloud
+    # compliance: compliance-value
+    href: /docs/vpc-resiliency
+    path: vpc-resiliency
+    description: Design considerations and architecture decisions for deploying resilient applications on IBM Cloud VPC infrastructure.
+    label: IBM Cloud VPC resiliency
+
+  entries:
+  - navgroup:
+      id: overview
+      topics:
+      - overview.md
+      - concepts.md
+
+  - navgroup:
+      id: plan
+      topics:
+      - topicgroup:
+          label: Design considerations
+          topics:
+          - topic: high-availability-design.md
+            navtitle: High availability
+          - topic: backup-and-restore-design.md
+            navtitle: Backup and restore
+          - topic: disaster-recovery-design.md
+            navtitle: Disaster recovery
+          - topic: networking-design.md
+            navtitle: Networking
+          - topic: security-design.md
+            navtitle: Security
+          - topic: service-management-design.md
+            navtitle: Service management
+      - topicgroup:
+          label: Architecture decisions
+          topics:
+          - topic: high-availability-architecture.md
+            navtitle: High availability
+          - topic: backup-and-restore-architecture.md
+            navtitle: Backup and restore
+          - topic: disaster-recovery-architecture.md
+            navtitle: Disaster recovery
+          - topic: networking-architecture.md
+            navtitle: Networking
+          - topic: security-architecture.md
+            navtitle: Security
+          - topic: service-management-architecture.md
+            navtitle: Service management
+
+  - navgroup:
+      id: reference
+      topics:
+      - references.md
