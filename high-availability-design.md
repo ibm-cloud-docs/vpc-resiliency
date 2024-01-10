@@ -51,7 +51,7 @@ Multi-zone deployments rely on application-aware data replication across availab
 | Multi-zone, multi-region  | &amp;gt;99.99%[^footnote3]        | - Multiple compute instances across multiple availability zones in 2 or more regions \n - Asynchronous data replication across regions \n - Protection from region outages \n - High cost | - Mission-critical applications with continuous or near continuous availability requirements \n - Business continuity policies with cross geo or distance requirements \n - Disaster recovery |
 {: caption="Table 2. High availability deployment recommendations" caption-side="bottom"}
 
-[^footnote1]: Based on Cloud infrastructure [SLA](https://www.ibm.com/support/customer/csol/terms/?id=i126-9268&lc=en#detail-document). 99.99% availability requires redundant deployments across 3 availability zones within a region and an application that is designed following an active-active clustering architecture.
+[^footnote1]: Based on Cloud infrastructure [SLA](https://www.ibm.com/support/customer/csol/terms/?id=i126-9268&lc=en#detail-document).
 
 [^footnote2]: Based on Cloud infrastructure [SLA](https://www.ibm.com/support/customer/csol/terms/?id=i126-9268&lc=en#detail-document). 99.99% availability requires redundant deployments across 3 availability zones within a region and an application that is designed following an active-active clustering architecture.
 

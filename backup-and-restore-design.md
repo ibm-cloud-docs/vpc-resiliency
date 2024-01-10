@@ -39,4 +39,4 @@ Backup and restore can be considered as a disaster recovery strategy to recover 
 | Database protection      | Application-consistent backups (Oracle, IBM Db2, MongoDB, MS SQL Server) | Not supported                                                                                |
 | Encryption          | In-transit and at rest                                                  | In-transit and at rest                                                                       |
 | Recommendation          | Database or folder level backup for multiple virtual servers                             | Complex backup operations for multiple virtual servers that do not require application data consistency |
-{: caption="Table 1. Compariosn of backup options for Virtual Servers for VPC" caption-side="bottom"}
+{: caption="Table 1. Comparison of backup options for Virtual Servers for VPC" caption-side="bottom"}

@@ -11,7 +11,7 @@ keywords:
 ---
 
 # Architecture decisions for high availability
-{: #high-availability}
+{: #high-availability-architecture}
 
 The following table summarizes the high availability architecture decisions for deploying resilient workloads on IBM Cloud VPC infrastructure.
 
